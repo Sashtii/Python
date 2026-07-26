@@ -1,0 +1,60 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class Stack:
+    def __init__(self):
+        self.top = None
+
+    def push(self, data):
+        new_node = Node(data)
+        new_node.next = self.top
+        self.top = new_node
+        print(f"{data} pushed into stack.")
+
+    def pop(self):
+        if self.top is None:
+            print("Stack Underflow!")
+        else:
+            print("Popped element:", self.top.data)
+            self.top = self.top.next
+
+    def peek(self):
+        if self.top is None:
+            print("Stack is empty.")
+        else:
+            print("Top element:", self.top.data)
+
+    def display(self):
+        if self.top is None:
+            print("Stack is empty.")
+        else:
+            print("Stack elements (Top to Bottom):")
+            temp = self.top
+            while temp:
+                print(temp.data)
+                temp = temp.next
+stack = Stack()
+while True:
+    print("1. Push")
+    print("2. Pop")
+    print("3. Peek")
+    print("4. Display")
+    print("5. Exit")
+    choice = int(input("Enter your choice: "))
+    match choice:
+        case 1:
+            value = int(input("Enter value to push: "))
+            stack.push(value)
+        case 2:
+            stack.pop()
+        case 3:
+            stack.peek()
+        case 4:
+            stack.display()
+        case 5:
+            print("Exiting program")
+            break
+        case _:
+            print("Invalid choice!")
