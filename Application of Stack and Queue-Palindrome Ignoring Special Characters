@@ -1,0 +1,12 @@
+from collections import deque
+def palindrome(s):
+  q=deque
+  reverse=""
+  while q:
+    reverse=q.popleft()+reverse
+  return s==reverse
+s=input("Enter a string:")
+if palindrome(s):
+  print("Palindrome")
+else:
+  print("Not a palindrome")
